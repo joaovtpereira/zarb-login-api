@@ -8,16 +8,27 @@ module.exports = {
   },
   async store(req, res) {
     const { email, password } = req.body;
+    
+    const existUser = await User.findOne({ where: { email} });
+
+    if(existUser){
+      return res.status(401).json("Email já cadastrado");
+    }
 
     const user = await User.create({ email, password });
 
-    return res.json(user);
+    return res.status(200).json(user);
   },
 
   async update(req, res) {
     try {
       const { email, password } = req.body;
       const user = await User.findOne({ where: { email} });
+
+      if(!user){
+        return res.status(401).json("Email Incorreto");
+      }
+  
       const updated = await User.update(req.body, {
         where: { id: user.id }
       });
