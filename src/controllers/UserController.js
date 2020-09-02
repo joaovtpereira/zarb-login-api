@@ -7,7 +7,7 @@ module.exports = {
     return res.json(users);
   },
   async store(req, res) {
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
     
     const existUser = await User.findOne({ where: { email} });
 
@@ -15,7 +15,7 @@ module.exports = {
       return res.status(401).json("Email já cadastrado");
     }
 
-    const user = await User.create({ email, password });
+    const user = await User.create({ name, email, password });
 
     return res.status(200).json(user);
   },
