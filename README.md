@@ -14,3 +14,16 @@ API rest feita em node.js
 * Clone o repositório brasilcertec-api e realize os seguintes comandos na raiz do projeto:
   - `yarn sequelize db:migrate` para rodar as migrations.
 * Vá no postbird e clique no ícone de "refresh" no canto inferior esquerdo, as tabelas do banco devem aparecer listadas na esquerda.
+
+## Available Scripts
+
+No projeto, você pode rodar:
+
+### `yarn`
+
+Utilize o comando "yarn" para baixar todas as dependências do projeto.
+
+### `yarn dev`
+
+Utilize o comando "yarn dev" para rodar o servidor.
+Open [http://localhost:3333](http://localhost:3333) to view it in the browser.
